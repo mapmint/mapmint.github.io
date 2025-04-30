@@ -1,4 +1,73 @@
-baseURL = 'https://example.org/'
+baseURL = 'https://mapmint.github.io'
 languageCode = 'en-us'
-title = 'MapMint'
 theme = 'mapmint'
+
+[params]
+description = 'MapMint is an open-source geospatial platform designed to publish, manage, and analyze spatial data on the web. Built on OGC standards, it empowers users to create interactive maps and web GIS applications easily.'
+
+# navigation menu
+[menu]
+    [[menu.main]]
+      identifier = "home"
+      name = "Home"
+      url = "/"
+      weight = 1
+
+    [[menu.main]]
+      identifier = "homepage"
+      name = "Home"
+      url = "/en/home/"
+      parent = "en"
+      weight = 2
+
+    [[menu.main]]
+      identifier = "tour"
+      name = "Tour"
+      url = "/en/tour/"
+      parent = "en"
+      weight = 3
+
+    [[menu.main]]
+      identifier = "modules"
+      name = "Modules"
+      url = "/en/modules/"
+      parent = "en"
+      weight = 4
+
+    [[menu.main]]
+      identifier = "documentation"
+      name = "Documentation"
+      url = "https://mapmint.github.io/userguide-fr/en/"
+      parent = "about"
+      weight = 5
+
+    [[menu.main]]
+      identifier = "overview"
+      name = "Overview"
+      url = "/en/overview/"
+      parent = "en"
+      weight = 6
+
+    [[menu.main]]
+      identifier = "components"
+      name = "Components"
+      url = "/en/components/"
+      parent = "en"
+      weight = 7
+
+    [[menu.main]]
+      identifier = "resources"
+      name = "Resources"
+      url = "https://github.com/mapmint"
+      parent = "resources"
+      weight = 8
+
+    [[menu.main]]
+      identifier = "plans"
+      name = "Plans"
+      url = "/en/plans/"
+      parent = "en"
+      weight = 9
+
+    
+    
