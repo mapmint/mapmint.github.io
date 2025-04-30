@@ -115,7 +115,7 @@ function bounceDiv() {
 }
 
 $(function($) {
-	
+	init()
 
 $('.map0,.map1, .map2, .map3, .map4, .map5').css({opacity:0});
 	
