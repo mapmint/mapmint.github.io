@@ -1,0 +1,14 @@
+
+  {{ partial "header.html" . }}
+
+{{ partial "nav.html" . }}
+  <main>
+    {{ block "main" . }}{{ end }}
+  </main>
+  <footer>
+    {{ partial "footer.html" . }}
+  </footer>
+{{ block "scripts" . }}{{ end }}
+</body>
+</html>
+

@@ -1,0 +1,173 @@
+
+{{ define "main" }}
+<div class="gray_bg">
+        <div class="container">
+            <div class="row welcome">
+                <div class="col-md-12">
+                    <h1 class="msg">fast <span class="colored">&</span> easy <span class="colored">webmapping</span>.</h1>
+                    <p></p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="slider_area" id="map">
+
+        <div class="container">	
+				<div class="inimess">
+					<p class="inim">Need <span>cartographic</span> super powers ?</p>
+				</div>
+				<div class="btmblkr"></div>
+				<div class="inimess1">
+					<p class="inim">master </br>your</br><span>data</span>,</p>
+				</div>
+				<div class="inimess3">
+					<p class="inim">create</br>great</br><span>maps,</span></p>
+				</div>
+				<div class="inimess4">
+					<p class="inim">publish </br>cool </br><span>apps.</span></p>
+				</div>
+				<div class="endmess">
+					<p class="inim"><span>yeah</span> !</p>
+				</div>
+				<div class="anim">
+				<div class="hand"></div>
+				<div class="hand2"></div>
+				<div class="elefant"></div>
+				<div class="shape"></div>
+				<div class="osm"></div>
+				<div class="gdal"></div>
+				<div class="qst"></div>
+				<div class="map0"><a href="#" class="zero" onclick="map.setBaseLayer(osm);"></a></div>
+    			         <div class="map1"><a href="#" class="one" onclick="map.setBaseLayer(baseOSM);"></a></div>    
+    			         <div class="map2"><a href="#" class="two" onclick="map.setBaseLayer(gmap);"></a></div>
+    			         <div class="map3"><a href="#" class="three" onclick="map.setBaseLayer(gphy);"></a></div> 
+    			         <div class="map4"><a href="#" class="four" onclick="map.setBaseLayer(stamenLayer);"></a></div>
+    			       <div class="map5"><a href="#" class="five" onclick="map.setBaseLayer(gsat);"></a></div> 
+			</div>
+             </div>
+    </div>
+
+    <div class="gray_bg">
+        <div class="container">
+            <div class="row m25">
+                <div class="col-md-4 clearfix">
+                        <img src="../../images/happy.png" class="pull-left" />
+                        <h3>Fast <span class="colored">&amp;</span> easy to use</h3>
+                        <p><a href="http://mapmint.com" class="mm">Map<span>Mint</span></a> is designed to help individuals and organizations to publish quality web maps. No coding required.</p>
+                </div>
+                <div class="col-md-4 clearfix">
+                        <img src="../../images/tool.png" class="pull-left" />
+                        <h3>Highly customizable</h3>
+                        <p><a href="http://mapmint.com" class="mm">Map<span>Mint</span></a> provides numerous <a href="/../../en/modules">features</a> to design quality maps and publish advanced webmapping applications.</p>
+                </div>
+                <div class="col-md-4 clearfix">
+                        <img src="../../images/univ.png" class="pull-left" />
+                        <h3>Standards-compliant</h3>
+                        <p><a href="http://mapmint.com" class="mm">Map<span>Mint</span></a> implements various geospatial and web <a href="./Standards">standards</a> and provides an interoperable and extensible <a href="/../../overview">architecture</a>.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+<div class="green_bg">
+<div class="container">
+<div class="row welcome_subinner">
+<div class="span12">
+<div class="span2 logo-ms-big"></div>
+<div class="span8">
+<h1 class="title-big">Map<span class="mmw">Server</span> & more, <br/> only a few clicks away<span class="mmw">...</span></h1> 
+</div>
+<div class="span12 butc">
+<h2>Simple GUI-based geoportal management</h2>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="container portfolio"> </div>
+{{ end }}
+
+{{ define "scripts" }}
+
+<script>
+function sendmail(){
+ var query=new Array();
+ $('.field').each(function(){
+    $(this).find('input').each(function(){
+      if(this.id && $(this).val()!="")
+      query.push({name: this.id, value: $(this).val(), dataType: "string"});
+    });
+    $(this).find('textarea').each(function(){
+      if($(this).val()!="")
+      query.push({name: this.id, value: $(this).val(), dataType: "string"});
+    });
+ });
+ var fQuery=WPSGetHeader("mail")+WPSGetInputs(query)+WPSGetOutput({name: "Result"})+WPSGetFooter();
+ $.ajax({
+  url: "/cgi-bin/zoo_loader.cgi",
+  data: fQuery,
+  type: "POST",
+  contentType: 'text/xml',
+  complete: function(xml,status){
+    if(status=="success")
+      checkWPSResult(xml);
+  }
+ });
+}
+
+function checkWPSResult(xml){
+  if(xml.responseXML){
+    var tmp=$(xml.responseXML).find("ows\\:ExceptionText").text();
+    if(tmp=="")
+	tmp=$(xml.responseXML).find("ExceptionText").text();
+    if(tmp!=""){
+      $(".error").css({"display": "block"});
+      $(".error").fadeOut(5000,function() {$(this).css({"display": "none"});})
+      return false;
+    }
+    else{
+      $(".success").css({"display": "block"});
+      $(".success").fadeOut(5000,function() {$(this).css({"display": "none"});})
+      return true;
+    }
+  }
+}
+
+function WPSGetHeader(name){
+  return '<wps:Execute service="WPS" version="1.0.0" xmlns:wps="http://www.opengis.net/wps/1.0.0" xmlns:ows="http://www.opengis.net/ows/1.1" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.opengis.net/wps/1.0.0 ../wpsExecute_request.xsd"><ows:Identifier>'+name+'</ows:Identifier>';
+}
+
+function WPSGetFooter(){
+  return "</wps:Execute>";
+}
+
+function WPSGetInputs(obj){
+  var inputs="";
+  for(var i=0;i<obj.length;i++){
+    inputs+=WPSGetInput(obj[i]);
+  }
+  return '<wps:DataInputs>'+inputs+'</wps:DataInputs>';
+}
+
+function WPSGetInput(obj){
+  if(obj.dataType)
+    return WPSGetLiteralInput(obj);
+  else
+    return WPSGetComplexInput(obj);
+}
+
+function WPSGetLiteralInput(obj){
+  return '<wps:Input><ows:Identifier>'+obj.name+'</ows:Identifier><wps:Data><wps:LiteralData><![CDATA['+obj.value+']]></wps:LiteralData></wps:Data></wps:Input>';
+}
+
+function WPSGetComplexInput(obj){
+  return '<wps:Input><ows:Identifier>'+obj.name+'</ows:Identifier><wps:Data><wps:ComplexData mimeType="'+(obj.mimeType?obj.mimeType:"text/xml")+'">'+obj.value+'</wps:ComplexData></wps:Data></wps:Input>';
+}
+
+function WPSGetOutput(obj){
+  return '<wps:ResponseForm><wps:ResponseDocument '+((obj.mimeType)?'mimeType="'+obj.mimeType+'"':"")+'><wps:Output><ows:Identifier>'+obj.name+'</ows:Identifier></wps:Output></wps:ResponseDocument></wps:ResponseForm>';
+}
+
+</script>
+{{ end }}

@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>MapMint | Home</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="MapMint">
+<meta name="author" content="MapMint">
+<meta name="keywords" content="MapMint, MapServer, SDI, WPS, WFS, WMS, Web GIS, Webmapping, Inspire">
+<link href='http://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'>
+
+<link href="../../css/bootstrap.css" rel="stylesheet">
+<link href="../../css/bootstrap-responsive.css" rel="stylesheet">
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" crossorigin="anonymous">
+
+<!-- Optional theme -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" crossorigin="anonymous">
+
+<link href="../../css/docs.css" rel="stylesheet">
+<link rel="stylesheet" href="../../css/jquery.simplyscroll.css" type="text/css" media="screen" charset="utf-8" />
+<!--[if lt IE 9]>
+<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+<![endif]-->
+<link rel="shortcut icon" href="/../favicon.ico">
+<!--  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" crossorigin="anonymous"> </script> -->
+
+{{ with .Params.loadCSS }}
+  {{ range . }}
+  <link rel="stylesheet" href="../../css/{{ . }}" type="text/css">
+  {{ end }}
+{{ end }}
+</head>
+
+<body onload="init()">
+    <div class="panel hidden-phone">
+    <div id="form-container"> 
+    <h1 class="ct" >Contact <a href="/" class="mmw">Map<span>Mint</span></a></h1>
+    <fieldset>
+    <form>
+    <div class="error" style="display: none">An error occurred. Please try again and fill up all the fields.</div>
+    <div class="success" style="display: none">Your message has been sent. We will answer you shortly.</div>
+    <div class="field">
+    <label for="Name">Last name:</label>
+    <input type="text" value="" id="Name" />
+    </div>
+    <div class="field">
+    <label for="Firstname">First name:</label>
+    <input type="text" value="" id="Firstname" />
+    </div>     	
+    <div class="field">
+    <label for="Email">Email:</label>
+    <input type="text" value="" id="Email" />
+    </div>
+    <div class="field">
+    <label for="Organisation">Organisation:</label>
+    <input type="text" value="" id="Organisation" />
+    </div>
+    <div class="field">
+    <label for="Message">Message:</label>
+    <textarea id="Message"></textarea>
+    </div>
+    <div class="field">
+    <input type="submit" value="Send your message" class="btn bckflip"  onclick="try{sendmail()}catch(e){};return false;"/>
+    </div>
+    </form>
+    </fieldset>
+    </div>
+    </div>
+
