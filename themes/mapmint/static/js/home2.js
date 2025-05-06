@@ -4,6 +4,7 @@ var gsat, gmap, gphy, ghyb, streetlayer;
 var baseOSM, osm, OSMgs;
 var cycle;
 var stamenLayer;
+var topoLayer;
     
 function init() {
 	 if (!OpenLayers.CANVAS_SUPPORTED) {
@@ -33,6 +34,13 @@ function init() {
     map = new OpenLayers.Map('map', {
     	projection: "EPSG:900913",
     controls: []
+    });
+
+	topoLayer = new OpenLayers.Layer.XYZ("OpenTopoMap", [
+        "https://c.tile.opentopomap.org/{z}/{x}/{y}.png"
+    ], {
+        attribution: "Tiles &copy; <a href='https://opentopomap.org/'>OpenTopoMap</a> (CC-BY-SA)",
+        isBaseLayer: true
     });
 
 	baseOSM = new OpenLayers.Layer.TMS("MapQuest", "http://otile1.mqcdn.com/tiles/1.0.0/osm/",	{
@@ -67,7 +75,7 @@ function init() {
   	attribution: "Data by <a href='http://www.openstreetmap.org/' target='_blank'>Open Street Map</a>,<a href='http://www.openstreetmap.org/' target='_blank'>OpenStreetMap</a> contributors, <a href='http://creativecommons.org/licenses/by-sa/2.0/' target='_blank'>CC-BY-SA</a>"
 	} );
 
-    map.addLayers([OSMgs/*,baseOSM,gmap,gphy, gsat, ghyb*/,osm, stamenLayer]);
+	map.addLayers([OSMgs, osm, topoLayer]);
     
     var attr = new OpenLayers.Control.Attribution();
     map.addControl(attr);
