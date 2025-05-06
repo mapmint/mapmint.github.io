@@ -37,9 +37,9 @@ function init() {
     });
 
 	topoLayer = new OpenLayers.Layer.XYZ("OpenTopoMap", [
-        "https://c.tile.opentopomap.org/{z}/{x}/{y}.png"
+        "http://c.tile.opentopomap.org/{z}/{x}/{y}.png"
     ], {
-        attribution: "Tiles &copy; <a href='https://opentopomap.org/'>OpenTopoMap</a> (CC-BY-SA)",
+        attribution: "Tiles &copy; <a href='http://opentopomap.org/'>OpenTopoMap</a> (CC-BY-SA)",
         isBaseLayer: true
     });
 
