@@ -3,8 +3,11 @@ var lonlat;
 var gsat, gmap, gphy, ghyb, streetlayer;
 var baseOSM, osm, OSMgs;
 var cycle;
-var stamenLayer;
 var topoLayer;
+var cyclOSMLayer;
+var humanOSMLayer;
+
+
     
 function init() {
 	 if (!OpenLayers.CANVAS_SUPPORTED) {
@@ -36,46 +39,54 @@ function init() {
     controls: []
     });
 
-	topoLayer = new OpenLayers.Layer.XYZ("OpenTopoMap", [
-        "http://c.tile.opentopomap.org/{z}/{x}/{y}.png"
-    ], {
-        attribution: "Tiles &copy; <a href='http://opentopomap.org/'>OpenTopoMap</a> (CC-BY-SA)",
-        isBaseLayer: true
-    });
+	topoLayer = new OpenLayers.Layer.OSM(
+		"OpenTopoMap",
+		[
+		  "http://a.tile.opentopomap.org/${z}/${x}/${y}.png",
+		  "http://b.tile.opentopomap.org/${z}/${x}/${y}.png",
+		  "http://c.tile.opentopomap.org/${z}/${x}/${y}.png"
+		],
+		{
+		  attribution: "Tiles &copy; <a href='http://opentopomap.org/'>OpenTopoMap</a> (CC-BY-SA)",
+		  isBaseLayer: true
+		}
+	  );
+	  
+	cyclOSMLayer = new OpenLayers.Layer.OSM(
+		"CyclOSM",
+		[
+		  "http://a.tile-cyclosm.openstreetmap.fr/cyclosm/${z}/${x}/${y}.png",
+		  "http://b.tile-cyclosm.openstreetmap.fr/cyclosm/${z}/${x}/${y}.png",
+		  "http://c.tile-cyclosm.openstreetmap.fr/cyclosm/${z}/${x}/${y}.png"
+		],
+		{
+		  attribution: "Tiles © <a href='http://www.cyclosm.org/'>CyclOSM</a>, OpenStreetMap contributors",
+		  isBaseLayer: true
+		}
+	  );
 
-	baseOSM = new OpenLayers.Layer.TMS("MapQuest", "http://otile1.mqcdn.com/tiles/1.0.0/osm/",	{
-  		type: 'png', 
-  		getURL: osm_getTileURL,
-  		displayOutsideMaxExtent: true, 
-  		isBaseLayer: true,
-  		attribution: "Data by <a href='http://www.mapquest.com/'  target='_blank'>MapQuest</a>, CC-BY-SA <a href='http://www.openstreetmap.org/' target='_blank'>Open Street Map</a>",
-  		transitionEffect: "resize"
- 	});
- 
-    stamenLayer = new OpenLayers.Layer.Stamen("watercolor");
-    
-    gphy = new OpenLayers.Layer.Google(
-        "Google Physical",
-        {type: google.maps.MapTypeId.TERRAIN}
-    );
-    gmap = new OpenLayers.Layer.Google(
-        "Google Streets", // the default
-        {numZoomLevels: 20}
-    );
-    ghyb = new OpenLayers.Layer.Google(
-        "Google Hybrid",
-        {type: google.maps.MapTypeId.HYBRID, numZoomLevels: 20}
-    );
-    gsat = new OpenLayers.Layer.Google(
-        "Google Satellite",
-        {type: google.maps.MapTypeId.SATELLITE, numZoomLevels: 22}
-    );
+	humanOSMLayer = new OpenLayers.Layer.OSM(
+		"HOT OSM",
+		[
+		  "http://tile-a.openstreetmap.fr/hot/${z}/${x}/${y}.png",
+		  "http://tile-b.openstreetmap.fr/hot/${z}/${x}/${y}.png",
+		  "http://tile-c.openstreetmap.fr/hot/${z}/${x}/${y}.png"
+		],
+		{
+		  attribution: "Tiles © <a href='http://www.openstreetmap.org/'>OpenStreetMap</a>, Humanitarian style",
+		  isBaseLayer: true
+		}
+	  );
 
+	
 	osm = new OpenLayers.Layer.OSM({
   	attribution: "Data by <a href='http://www.openstreetmap.org/' target='_blank'>Open Street Map</a>,<a href='http://www.openstreetmap.org/' target='_blank'>OpenStreetMap</a> contributors, <a href='http://creativecommons.org/licenses/by-sa/2.0/' target='_blank'>CC-BY-SA</a>"
 	} );
+	
 
-	map.addLayers([OSMgs, osm, topoLayer]);
+	map.addLayers([osm, cyclOSMLayer, humanOSMLayer, topoLayer]);
+	map.setBaseLayer(cyclOSMLayer);
+
     
     var attr = new OpenLayers.Control.Attribution();
     map.addControl(attr);
@@ -209,7 +220,7 @@ setTimeout(function() {
  	map.setBaseLayer(gmap);
  	$(".map3").animate({opacity:1, marginLeft: '67%', marginTop:'-110px', zIndex:'1'}, 2000, function() {
  		map.setBaseLayer(gphy);  
- 		$(".anim").css({"background" : "url(assets/images/pasaconh.png) no-repeat"});
+ 		$(".anim").css({"background" : "url(../../images/pasaconh.png) no-repeat"});
  		$('.endmess').fadeOut(1000);	 
  		$(".map4").animate({opacity:1, marginLeft: '74%', marginTop:'-20px', zIndex:'1'}, 2000, function() {
 		map.setBaseLayer(stamenLayer);
