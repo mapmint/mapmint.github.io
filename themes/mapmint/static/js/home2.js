@@ -66,7 +66,7 @@ function init() {
 	  );
 
 	humanOSMLayer = new OpenLayers.Layer.OSM(
-		"HOT OSM",
+		"HumanOSM",
 		[
 		  "http://tile-a.openstreetmap.fr/hot/${z}/${x}/${y}.png",
 		  "http://tile-b.openstreetmap.fr/hot/${z}/${x}/${y}.png",
@@ -78,6 +78,7 @@ function init() {
 		}
 	  );
 
+	
 	
 	osm = new OpenLayers.Layer.OSM({
   	attribution: "Data by <a href='http://www.openstreetmap.org/' target='_blank'>Open Street Map</a>,<a href='http://www.openstreetmap.org/' target='_blank'>OpenStreetMap</a> contributors, <a href='http://creativecommons.org/licenses/by-sa/2.0/' target='_blank'>CC-BY-SA</a>"
