@@ -43,13 +43,13 @@ function init() {
 	positronLayer = new OpenLayers.Layer.XYZ(
 		"CartoDB Positron",
 		[
-		  "http://a.basemaps.cartocdn.com/light_all/${z}/${x}/${y}.png",
-		  "http://b.basemaps.cartocdn.com/light_all/${z}/${x}/${y}.png",
-		  "http://c.basemaps.cartocdn.com/light_all/${z}/${x}/${y}.png",
-		  "http://d.basemaps.cartocdn.com/light_all/${z}/${x}/${y}.png"
+		  "https://a.basemaps.cartocdn.com/light_all/${z}/${x}/${y}.png",
+		  "https://b.basemaps.cartocdn.com/light_all/${z}/${x}/${y}.png",
+		  "https://c.basemaps.cartocdn.com/light_all/${z}/${x}/${y}.png",
+		  "https://d.basemaps.cartocdn.com/light_all/${z}/${x}/${y}.png"
 		],
 		{
-		  attribution: "Data by <a href='http://carto.com/attributions'>CARTO</a> (CC-BY-SA)",
+		  attribution: "Data by <a href='https://carto.com/attributions'>CARTO</a> (CC-BY-SA)",
 		  isBaseLayer: true,
 		}
 	  );
@@ -57,12 +57,12 @@ function init() {
 	topoLayer = new OpenLayers.Layer.XYZ(
 		"OpenTopoMap",
 		[
-		  "http://a.tile.opentopomap.org/${z}/${x}/${y}.png",
-		  "http://b.tile.opentopomap.org/${z}/${x}/${y}.png",
-		  "http://c.tile.opentopomap.org/${z}/${x}/${y}.png"
+		  "https://a.tile.opentopomap.org/${z}/${x}/${y}.png",
+		  "https://b.tile.opentopomap.org/${z}/${x}/${y}.png",
+		  "https://c.tile.opentopomap.org/${z}/${x}/${y}.png"
 		],
 		{
-		  attribution: "Data by <a href='http://opentopomap.org/'>OpenTopoMap</a> (CC-BY-SA)",
+		  attribution: "Data by <a href='https://opentopomap.org/'>OpenTopoMap</a> (CC-BY-SA)",
 		  isBaseLayer: true
 		}
 	  );
@@ -70,12 +70,12 @@ function init() {
 	cyclOSMLayer = new OpenLayers.Layer.XYZ(
 		"CyclOSM",
 		[
-		  "http://a.tile-cyclosm.openstreetmap.fr/cyclosm/${z}/${x}/${y}.png",
-		  "http://b.tile-cyclosm.openstreetmap.fr/cyclosm/${z}/${x}/${y}.png",
-		  "http://c.tile-cyclosm.openstreetmap.fr/cyclosm/${z}/${x}/${y}.png"
+		  "https://a.tile-cyclosm.openstreetmap.fr/cyclosm/${z}/${x}/${y}.png",
+		  "https://b.tile-cyclosm.openstreetmap.fr/cyclosm/${z}/${x}/${y}.png",
+		  "https://c.tile-cyclosm.openstreetmap.fr/cyclosm/${z}/${x}/${y}.png"
 		],
 		{
-		  attribution: "Data by <a href='http://www.cyclosm.org/'>CyclOSM</a>, (CC-BY-SA)",
+		  attribution: "Data by <a href='https://www.cyclosm.org/'>CyclOSM</a>, (CC-BY-SA)",
 		  isBaseLayer: true
 		}
 	  );
@@ -83,19 +83,19 @@ function init() {
 	humanOSMLayer = new OpenLayers.Layer.OSM(
 		"HumanOSM",
 		[
-		  "http://tile-a.openstreetmap.fr/hot/${z}/${x}/${y}.png",
-		  "http://tile-b.openstreetmap.fr/hot/${z}/${x}/${y}.png",
-		  "http://tile-c.openstreetmap.fr/hot/${z}/${x}/${y}.png"
+		  "https://tile-a.openstreetmap.fr/hot/${z}/${x}/${y}.png",
+		  "https://tile-b.openstreetmap.fr/hot/${z}/${x}/${y}.png",
+		  "https://tile-c.openstreetmap.fr/hot/${z}/${x}/${y}.png"
 		],
 		{
-		  attribution: "Data by <a href='http://www.openstreetmap.org/'>OpenStreetMap</a>, Humanitarian style",
+		  attribution: "Data by <a href='https://www.openstreetmap.org/'>OpenStreetMap</a>, Humanitarian style",
 		  isBaseLayer: true
 		}
 	  );
 
 	
 	osm = new OpenLayers.Layer.OSM({
-  	attribution: "Data by <a href='http://www.openstreetmap.org/' target='_blank'>Open Street Map</a>,<a href='http://www.openstreetmap.org/' target='_blank'>OpenStreetMap</a> contributors, <a href='http://creativecommons.org/licenses/by-sa/2.0/' target='_blank'>CC-BY-SA</a>"
+  	attribution: "Data by <a href='https://www.openstreetmap.org/' target='_blank'>Open Street Map</a>,<a href='https://www.openstreetmap.org/' target='_blank'>OpenStreetMap</a> contributors, <a href='https://creativecommons.org/licenses/by-sa/2.0/' target='_blank'>CC-BY-SA</a>"
 	} );
 	
 
