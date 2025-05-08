@@ -6,7 +6,7 @@ var cycle;
 var topoLayer;
 var cyclOSMLayer;
 var humanOSMLayer;
-
+var positronLayer;
 
     
 function init() {
@@ -39,7 +39,22 @@ function init() {
     controls: []
     });
 
-	topoLayer = new OpenLayers.Layer.OSM(
+	
+	positronLayer = new OpenLayers.Layer.XYZ(
+		"CartoDB Positron",
+		[
+		  "http://a.basemaps.cartocdn.com/light_all/${z}/${x}/${y}.png",
+		  "http://b.basemaps.cartocdn.com/light_all/${z}/${x}/${y}.png",
+		  "http://c.basemaps.cartocdn.com/light_all/${z}/${x}/${y}.png",
+		  "http://d.basemaps.cartocdn.com/light_all/${z}/${x}/${y}.png"
+		],
+		{
+		  attribution: "Data by <a href='http://carto.com/attributions'>CARTO</a> (CC-BY-SA)",
+		  isBaseLayer: true,
+		}
+	  );
+
+	topoLayer = new OpenLayers.Layer.XYZ(
 		"OpenTopoMap",
 		[
 		  "http://a.tile.opentopomap.org/${z}/${x}/${y}.png",
@@ -47,12 +62,12 @@ function init() {
 		  "http://c.tile.opentopomap.org/${z}/${x}/${y}.png"
 		],
 		{
-		  attribution: "Tiles &copy; <a href='http://opentopomap.org/'>OpenTopoMap</a> (CC-BY-SA)",
+		  attribution: "Data by <a href='http://opentopomap.org/'>OpenTopoMap</a> (CC-BY-SA)",
 		  isBaseLayer: true
 		}
 	  );
 	  
-	cyclOSMLayer = new OpenLayers.Layer.OSM(
+	cyclOSMLayer = new OpenLayers.Layer.XYZ(
 		"CyclOSM",
 		[
 		  "http://a.tile-cyclosm.openstreetmap.fr/cyclosm/${z}/${x}/${y}.png",
@@ -60,7 +75,7 @@ function init() {
 		  "http://c.tile-cyclosm.openstreetmap.fr/cyclosm/${z}/${x}/${y}.png"
 		],
 		{
-		  attribution: "Tiles © <a href='http://www.cyclosm.org/'>CyclOSM</a>, OpenStreetMap contributors",
+		  attribution: "Data by <a href='http://www.cyclosm.org/'>CyclOSM</a>, (CC-BY-SA)",
 		  isBaseLayer: true
 		}
 	  );
@@ -73,20 +88,19 @@ function init() {
 		  "http://tile-c.openstreetmap.fr/hot/${z}/${x}/${y}.png"
 		],
 		{
-		  attribution: "Tiles © <a href='http://www.openstreetmap.org/'>OpenStreetMap</a>, Humanitarian style",
+		  attribution: "Data by <a href='http://www.openstreetmap.org/'>OpenStreetMap</a>, Humanitarian style",
 		  isBaseLayer: true
 		}
 	  );
 
-	
 	
 	osm = new OpenLayers.Layer.OSM({
   	attribution: "Data by <a href='http://www.openstreetmap.org/' target='_blank'>Open Street Map</a>,<a href='http://www.openstreetmap.org/' target='_blank'>OpenStreetMap</a> contributors, <a href='http://creativecommons.org/licenses/by-sa/2.0/' target='_blank'>CC-BY-SA</a>"
 	} );
 	
 
-	map.addLayers([osm, cyclOSMLayer, humanOSMLayer, topoLayer]);
-	map.setBaseLayer(cyclOSMLayer);
+	map.addLayers([OSMgs, positronLayer, osm, cyclOSMLayer, humanOSMLayer, topoLayer]);
+	map.setBaseLayer(OSMgs);
 
     
     var attr = new OpenLayers.Control.Attribution();
@@ -215,19 +229,19 @@ setTimeout(function() {
  $(".map0").animate({opacity:1, marginLeft:'74%', marginTop:'-200px', zIndex:'1'}, 1000, function() {
  map.setBaseLayer(osm);
  $(".map1").animate({opacity:1, marginLeft: '67%', marginTop:'-200px', zIndex:'1'}, 2000, function() {
- map.setBaseLayer(baseOSM);
+ map.setBaseLayer(cyclOSMLayer);
  $('.endmess').fadeIn(1000);	
  $(".map2").animate({opacity:1, marginLeft: '74%', marginTop:'-110px', zIndex:'1'}, 2000, function() {
- 	map.setBaseLayer(gmap);
+ 	map.setBaseLayer(OSMgs);
  	$(".map3").animate({opacity:1, marginLeft: '67%', marginTop:'-110px', zIndex:'1'}, 2000, function() {
- 		map.setBaseLayer(gphy);  
+ 		map.setBaseLayer(humanOSMLayer);  
  		$(".anim").css({"background" : "url(../../images/pasaconh.png) no-repeat"});
  		$('.endmess').fadeOut(1000);	 
  		$(".map4").animate({opacity:1, marginLeft: '74%', marginTop:'-20px', zIndex:'1'}, 2000, function() {
-		map.setBaseLayer(stamenLayer);
+		map.setBaseLayer(positronLayer);
 		$(".map5").animate({opacity:1, marginLeft: '67%', marginTop:'-16px', zIndex:'1'}, 2000, function() {
 		$(".hand, .hand2").fadeOut(2000);
-		map.setBaseLayer(gsat);
+		map.setBaseLayer(topoLayer);
 		$(".map5").toggleClass("rt");
 		$(".anim").css({"background" : "transparent"});
 		$('.anim').append('<div class="btmblk"><h1 class="tour"><a href="../en/Tour">Take a tour.</a></h1></div>');
