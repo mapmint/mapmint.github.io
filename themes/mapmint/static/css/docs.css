@@ -1130,12 +1130,12 @@ filter:progid:DXImageTransform.Microsoft.Shadow(color=#656565, Direction=134, St
 -o-box-shadow: 1px 1px 3px 1px #000000;
 box-shadow: 1px 1px 3px 1px #000000;}
 
-.zero{width:90px;height:60px;background: url(../images/osmb.png) no-repeat;z-index:3;display:block;}
-.one{width:90px;height:60px;background: url(../images/mqo.png) no-repeat;z-index:3;display:block;}
-.two{width:90px;height:60px;background: url(../images/gmap.png) no-repeat;z-index:3;display:block;}
-.three{width:90px;height:60px;background: url(../images/gphy.png) no-repeat;z-index:3;display:block;}
-.four{width:90px;height:60px;background: url(../images/stam.png) no-repeat;z-index:3;display:block;}
-.five{width:90px;height:60px;background: url(../images/gsat.png) no-repeat;z-index:3;display:block;}
+.zero{width:90px;height:60px;background: url(../images/OSMg.png) no-repeat;z-index:3;display:block;}
+.one{width:90px;height:60px;background: url(../images/cycl.png) no-repeat;z-index:3;display:block;}
+.two{width:90px;height:60px;background: url(../images/osmap.png) no-repeat;z-index:3;display:block;}
+.three{width:90px;height:60px;background: url(../images/human.png) no-repeat;z-index:3;display:block;}
+.four{width:90px;height:60px;background: url(../images/positron.png) no-repeat;z-index:3;display:block;}
+.five{width:90px;height:60px;background: url(../images/topomap.png) no-repeat;z-index:3;display:block;}
 .rt {
     -webkit-transform: rotate(-2deg);
        -moz-transform: rotate(-2deg);

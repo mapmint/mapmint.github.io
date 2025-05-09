@@ -227,12 +227,12 @@ setTimeout(function() {
 setTimeout(function() {
 
  $(".map0").animate({opacity:1, marginLeft:'74%', marginTop:'-200px', zIndex:'1'}, 1000, function() {
- map.setBaseLayer(osm);
+ map.setBaseLayer(OSMgs);
  $(".map1").animate({opacity:1, marginLeft: '67%', marginTop:'-200px', zIndex:'1'}, 2000, function() {
  map.setBaseLayer(cyclOSMLayer);
  $('.endmess').fadeIn(1000);	
  $(".map2").animate({opacity:1, marginLeft: '74%', marginTop:'-110px', zIndex:'1'}, 2000, function() {
- 	map.setBaseLayer(OSMgs);
+ 	map.setBaseLayer(osm);
  	$(".map3").animate({opacity:1, marginLeft: '67%', marginTop:'-110px', zIndex:'1'}, 2000, function() {
  		map.setBaseLayer(humanOSMLayer);  
  		$(".anim").css({"background" : "url(../../images/pasaconh.png) no-repeat"});
