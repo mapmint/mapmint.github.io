@@ -258,19 +258,15 @@ function doDisplay2() {
 	
 function doDisplay3(){
 	$('.anim2').append('<div id="cog3"></div>');
-			$(".jqdesc").fadeIn(1000);	
+	$(".jqdesc").fadeIn(1000);	
 }
 	
 function doDisplay4() {
 	$(".oldesc").show();
-
-(function doDisplay5($) {
-   
-        $("#scroller").fadeIn(1000);
-        $("#scroller").simplyScroll({orientation:'vertical',customClass:'vert'});
-   
-})(jQuery);
-
-
-
 }
+
+function doDisplay5() {
+    $("#scroller").fadeIn(1000);
+    $("#scroller").simplyScroll({orientation:'vertical',customClass:'vert'});
+   
+}(jQuery);

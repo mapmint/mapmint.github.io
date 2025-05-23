@@ -4,8 +4,8 @@ var  OSMgs;
 var $j = jQuery.noConflict();
 var $ = $j;
 
-$(function($) {
-    console.log( "ready!" );
+function init() {
+    
     $(".span4").each(function(){
       console.log($(this));
         $(this).removeClass("span4").addClass("col-md-4");
@@ -73,4 +73,4 @@ $('.wyg').click(function(){
      }, 1500);
 });
 
-});
+};

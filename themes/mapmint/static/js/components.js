@@ -5,7 +5,7 @@ var cycle;
 var $j = jQuery.noConflict();
 var $ = $j;
 
-$(function($) {
+function init() {
 
 	
 	
@@ -103,6 +103,6 @@ $("li.cg a").hover(
     }
 );
 
-});
+};
 
 
