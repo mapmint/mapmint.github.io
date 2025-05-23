@@ -83,3 +83,17 @@
     <script src="../../js/{{ . }}"></script>
   {{ end }}
 {{ end }}
+
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+    const navSelect = document.querySelector("#main-nav select");
+    if (navSelect) {
+      navSelect.addEventListener("change", function () {
+        const url = this.value;
+        if (url && url !== "#") {
+          window.location.href = url;
+        }
+      });
+    }
+  });
+</script>
