@@ -1993,6 +1993,22 @@ form.well {
   .qrlogo{
     top: 140px;
   }
+  h1.title-big {
+    font-size: 2em;
+    position: sticky;
+  }
+  .span12 {
+    width: 400px;
+  }
+  .butc h2 {
+    font-size: 2.6em;
+  }
+  ul.popt li{
+    width: 45%;
+  }
+  h1.title {
+    font-size: 3.2em;
+  }
   /* Adjust the jumbotron */
   .jumbotron h1,
   .jumbotron p {
