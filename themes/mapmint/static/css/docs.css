@@ -1959,7 +1959,25 @@ form.well {
   h3 {
     margin-top: 18px;
   }
+  h1.bigw {
+    font-size: 4em;
+  }
+  #box .shd, #box2 .shd{
+    height: 385px;
+  }
+  .tsh{
+    padding-top: 10em;
+  }
+  .sub_slider_area{
+    height:920px;
+  }
+  .sub_sub_slider_area{
+    height:980px;
+  }
 
+  h1.bigd{
+    font-size: 4em;
+  }
   /* Adjust the jumbotron */
   .jumbotron h1,
   .jumbotron p {
