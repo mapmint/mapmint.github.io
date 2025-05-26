@@ -1978,6 +1978,21 @@ form.well {
   h1.bigd{
     font-size: 4em;
   }
+  .slider_area_h_line{
+    height: 830px;
+  }
+  #pie{
+    margin: 131px 0 0 0 !important;
+  }
+  .maplogo{
+    position:absolute;
+  }
+  .slider_area_h{
+    height: 900px;
+  }
+  .qrlogo{
+    top: 140px;
+  }
   /* Adjust the jumbotron */
   .jumbotron h1,
   .jumbotron p {
