@@ -2009,6 +2009,13 @@ form.well {
   h1.title {
     font-size: 3.2em;
   }
+  .span12 {
+    width: 360px;
+  }
+  h1.bigc {
+    top: 9px;
+    font-size: 4.2em;
+  }
   /* Adjust the jumbotron */
   .jumbotron h1,
   .jumbotron p {
