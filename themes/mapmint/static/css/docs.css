@@ -10,6 +10,7 @@ body {
   line-height:1.6em !important;
   color:#666;
 }
+
 .gray_bg { background-color:#f8f8f8; border-top:1px solid #efefef; border-bottom:1px solid #efefef;}
 .green_bg{background:#83c849;}
 .header_social {float:right; margin-right:0; margin-top:5px;}
@@ -1959,6 +1960,9 @@ form.well {
   h3 {
     margin-top: 18px;
   }
+  .span8 {
+    width: 90% !important;
+  }
   h1.bigw {
     font-size: 4em;
   }
@@ -2144,6 +2148,10 @@ form.well {
   }
   .footer p {
     margin-bottom: 9px;
+  }
+  h1.bigc {
+    font-size: 4.5em;
+    top: 1px;
   }
 
 }
