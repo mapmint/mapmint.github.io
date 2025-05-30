@@ -2153,7 +2153,30 @@ form.well {
     font-size: 4.5em;
     top: 1px;
   }
-
+  .slider_area_h_line {
+    height: 680px;
+  }
+  #pie {
+    top: 35px;
+  }
+  .loader {
+    top: 50px;
+  }
+  .sub_slider_area {
+    height: 745px;
+  }
+  .slider_area_h {
+    height: 750px;
+  }
+  .qrlogo {
+    top: 140px;
+  }
+  .mtp {
+    top: 120px;
+  }
+  .sub_sub_slider_area {
+    height: 800px;
+  }
 }
 
 
