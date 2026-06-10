@@ -1,0 +1,14 @@
+[
+  {
+    "relation": [
+      "delegate_permission/common.handle_all_urls"
+    ],
+    "target": {
+      "namespace": "android_app",
+      "package_name": "fr.geolabs.dev.mapmint4me",
+      "sha256_cert_fingerprints": [
+        "EF:9A:27:BC:A7:40:56:9C:D7:C8:AC:06:C2:2F:EB:36:DB:28:CC:74:9D:1E:DD:EE:1D:9A:98:16:AB:6F:AF:5A"
+      ]
+    }
+  }
+]
